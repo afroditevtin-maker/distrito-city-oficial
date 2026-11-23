@@ -12,11 +12,11 @@ A textura-fonte 256×256 está em `assets/overlays/distrito-city-wall-256.png`. 
 
 ## Release e integridade
 
-Release oficial: <https://github.com/afroditevtin-maker/distrito-city-oficial/releases/tag/v2.27.2-distrito-city>.
+Release oficial corretiva: <https://github.com/afroditevtin-maker/distrito-city-oficial/releases/tag/v2.27.3-distrito-city>.
 
-O arquivo `angra-classico-v2.27.2-distrito-city.zip` contém 2.099 entradas, mede 878.309.825 bytes e descompacta para 2.036.345.061 bytes. SHA-256: `06ec87e3786ac8cbfd64443c98f92e47c0807dc9962489bff1d0e22f23cd3d9a`. O índice `assets/data-integrity-angra-classico.tsv` contém 1.783 caminhos protegidos e sua identidade corresponde ao SHA-256 do ZIP.
+O arquivo `angra-classico-v2.27.3-distrito-city.zip` contém 2.099 entradas, mede 878.309.825 bytes e descompacta para 2.036.345.061 bytes. SHA-256: `06ec87e3786ac8cbfd64443c98f92e47c0807dc9962489bff1d0e22f23cd3d9a`. O índice `assets/data-integrity-angra-classico.tsv` contém 1.783 caminhos protegidos e sua identidade corresponde ao SHA-256 do ZIP.
 
-Os manifestos `assets/data-manifest-v2.json` e `assets/v3-configuracao/provedor.json`, além da seleção clássica em `GameIntegrity.smali`, foram atualizados para a identidade e URL da nova DATA. A correção anterior do parser de pacotes foi mantida.
+Os manifestos `assets/data-manifest-v2.json` e `assets/v3-configuracao/provedor.json`, além da seleção clássica em `GameIntegrity.smali`, foram atualizados para a identidade e URL da nova DATA. A correção v2.27.3 sincroniza as allowlists de nomes, release e asset tanto do manifesto v2 quanto do provedor v3, mantendo HTTPS e o caminho do repositório oficial restritos.
 
 ## Recompilação e limitações
 

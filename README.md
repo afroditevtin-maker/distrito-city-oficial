@@ -4,12 +4,12 @@ Este repositório contém uma source Android recuperada por Apktool e a reprodu�
 
 ## Entregas oficiais
 
-A nova release pública [`v2.27.2-distrito-city`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/tag/v2.27.2-distrito-city) contém:
+A release corretiva pública [`v2.27.3-distrito-city`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/tag/v2.27.3-distrito-city) contém:
 
-- DATA completa: [`angra-classico-v2.27.2-distrito-city.zip`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/download/v2.27.2-distrito-city/angra-classico-v2.27.2-distrito-city.zip)
-- APK recompilado com o hash da nova DATA e o hotfix anterior do instalador: [`distrito-city-v2.27.2.apk`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/download/v2.27.2-distrito-city/distrito-city-v2.27.2.apk)
+- DATA completa: [`angra-classico-v2.27.3-distrito-city.zip`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/download/v2.27.3-distrito-city/angra-classico-v2.27.3-distrito-city.zip)
+- APK recompilado com allowlists v2/v3 sincronizadas com os manifestos da release e o hash da DATA: [`distrito-city-v2.27.3.apk`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/download/v2.27.3-distrito-city/distrito-city-v2.27.3.apk)
 
-Esta release mantém a correção do parser de pacotes v2/v3 introduzida no hotfix anterior e atualiza apenas os pixels da textura exclusiva da parede para remover a coroa e o texto. A DATA tem 2.099 entradas ZIP, 878.309.825 bytes compactados e 2.036.345.061 bytes descompactados. SHA-256: `06ec87e3786ac8cbfd64443c98f92e47c0807dc9962489bff1d0e22f23cd3d9a`.
+A release anterior v2.27.2 publicou arquivos no repositório oficial, mas o APK ainda tinha uma allowlist interna incompatível com o nome e a URL novos. A v2.27.3 corrige essa divergência sem liberar hosts ou repositórios arbitrários. A DATA tem 2.099 entradas ZIP, 878.309.825 bytes compactados e 2.036.345.061 bytes descompactados. SHA-256: `06ec87e3786ac8cbfd64443c98f92e47c0807dc9962489bff1d0e22f23cd3d9a`.
 
 ## Escopo da DATA
 

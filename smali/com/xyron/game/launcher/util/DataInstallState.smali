@@ -1257,7 +1257,7 @@
 
     move-result-object v6
 
-    const-string v7, "/afroditevtin-maker/distrito-city-oficial/releases/download/[A-Za-z0-9._-]+/(?:data-angra(?:-v[0-9]+(?:\\.[0-9]+)*)?|angra-novo|angra-classico|angra-classico-v2\\.27-distrito-city)\\.zip"
+    const-string v7, "/afroditevtin-maker/distrito-city-oficial/releases/download/[A-Za-z0-9._-]+/(?:data-angra(?:-v[0-9]+(?:\\.[0-9]+)*)?|angra-novo|angra-classico(?:-v2\\.27(?:\\.[0-9]+)?-distrito-city)?)\\.zip"
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
