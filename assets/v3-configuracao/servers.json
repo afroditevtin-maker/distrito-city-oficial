@@ -1,0 +1,19 @@
+{
+  "formato": 1,
+  "paises": [
+    {
+      "codigo": "BR",
+      "nome": "Brasil",
+      "servidores": [
+        {
+          "id": "2",
+          "nome": "Rio Clássico",
+          "host": "135.148.164.122",
+          "porta": 19909,
+          "online": true,
+          "mensagem": "O servidor encontra-se indisponível no momento. Consulte o Discord para informações sobre a manutenção."
+        }
+      ]
+    }
+  ]
+}

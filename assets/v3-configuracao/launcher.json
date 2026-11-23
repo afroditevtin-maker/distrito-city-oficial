@@ -1,0 +1,17 @@
+{
+  "formato": 1,
+  "jogo": "DESTRITO Nobre",
+  "apk": {
+    "version_code": 204,
+    "version_name": "3.0",
+    "url": "https://github.com/baltarv1948-dotcom/angra-data/releases/download/launcher1/Angra-v3.0.apk",
+    "tamanho": 111609578,
+    "sha256": "b401a23dbbfb1610687dfd3f327a123a07f43dba01ffce2e0f4d29e9475b4963"
+  },
+  "seguranca_app": {
+    "url": "https://angra-app-security.euh-vibaltar.workers.dev",
+    "chave_id": "angra-app-v1"
+  },
+  "desativado": false,
+  "mensagem_desativado": "O aplicativo está desativado no momento. Consulte o Discord do Angra para mais informações."
+}

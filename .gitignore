@@ -1,0 +1,24 @@
+# Saídas temporárias do Apktool e artefatos de distribuição
+/build/
+/dist/
+/*.apk
+/*.apk.idsig
+/*.apks
+/*.aab
+
+# Configuração local e materiais de assinatura
+/local.properties
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/

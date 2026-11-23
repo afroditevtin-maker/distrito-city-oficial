@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/runtime_top_overlay" android:background="@android:color/transparent" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/framewebsettings" android:background="#ff050505" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <WebView android:id="@id/websettings" android:background="#ff050505" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </FrameLayout>
+    <LinearLayout android:gravity="center_vertical" android:layout_gravity="start|center|top" android:orientation="horizontal" android:id="@id/rio_map_header" android:visibility="gone" android:layout_width="210.0dip" android:layout_height="44.0dip" android:layout_marginTop="5.0dip" android:layout_marginStart="56.0dip">
+        <ImageButton android:id="@id/rio_map_back" android:background="@drawable/rio_map_back_bg" android:padding="10.0dip" android:layout_width="66.0dip" android:layout_height="38.0dip" android:src="@drawable/rio_map_back_arrow" android:contentDescription="Voltar do mapa" />
+        <TextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="Mapa" android:shadowColor="#c0000000" android:shadowDx="1.0" android:shadowDy="2.0" android:shadowRadius="2.0" android:paddingStart="14.0dip" />
+    </LinearLayout>
+</FrameLayout>

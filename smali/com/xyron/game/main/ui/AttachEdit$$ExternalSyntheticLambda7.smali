@@ -1,0 +1,36 @@
+.class public final synthetic Lcom/xyron/game/main/ui/AttachEdit$$ExternalSyntheticLambda7;
+.super Ljava/lang/Object;
+.source "D8$$SyntheticClass"
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# instance fields
+.field public final synthetic f$0:Lcom/xyron/game/main/ui/AttachEdit;
+
+
+# direct methods
+.method public synthetic constructor <init>(Lcom/xyron/game/main/ui/AttachEdit;)V
+    .locals 0
+
+    .line 0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/xyron/game/main/ui/AttachEdit$$ExternalSyntheticLambda7;->f$0:Lcom/xyron/game/main/ui/AttachEdit;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final onClick(Landroid/view/View;)V
+    .locals 1
+
+    .line 0
+    iget-object v0, p0, Lcom/xyron/game/main/ui/AttachEdit$$ExternalSyntheticLambda7;->f$0:Lcom/xyron/game/main/ui/AttachEdit;
+
+    invoke-virtual {v0, p1}, Lcom/xyron/game/main/ui/AttachEdit;->lambda$new$6$com-xyron-game-main-ui-AttachEdit(Landroid/view/View;)V
+
+    return-void
+.end method

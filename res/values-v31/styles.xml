@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AngraEntryTheme" parent="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+        <item name="android:windowBackground">#ff101013</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowSplashScreenBackground">#ff101013</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/angra_intro_empty</item>
+        <item name="android:windowSplashScreenAnimationDuration">0</item>
+    </style>
+</resources>
