@@ -215,7 +215,7 @@
     move-result-object v7
 
     .line 55
-    const-string v8, "data-angra(?:-v[0-9]+(?:\\.[0-9]+)*)?\\.zip"
+    const-string v8, "(?:data-angra(?:-v[0-9]+(?:\\.[0-9]+)*)?|angra-classico-v2\\.27-distrito-city)\\.zip"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
@@ -316,7 +316,7 @@
 
     move-result-object v9
 
-    const-string v11, "/afroditevtin-maker/distrito-city-oficial/releases/download/[A-Za-z0-9._-]+/(?:data-angra(?:-v[0-9]+(?:\\.[0-9]+)*)?|angra-novo|angra-classico|angra-classico-v2\\.27-distrito-city)\\.zip"
+    const-string v11, "/afroditevtin-maker/distrito-city-oficial/releases/download/v2\\.27\\.1-distrito-city/(?:data-angra(?:-v[0-9]+(?:\\.[0-9]+)*)?|angra-novo|angra-classico|angra-classico-v2\\.27-distrito-city)\\.zip"
 
     invoke-virtual {v9, v11}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
@@ -794,7 +794,7 @@
     goto :github_release_asset_ok
 
     :check_exact_release_asset
-    const-string v0, "/afroditevtin-maker/distrito-city-oficial/releases/download/v2\\.27-distrito-city/angra-classico-v2\\.27-distrito-city\\.zip"
+    const-string v0, "/afroditevtin-maker/distrito-city-oficial/releases/download/v2\\.27\\.1-distrito-city/angra-classico-v2\\.27-distrito-city\\.zip"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
