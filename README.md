@@ -1,29 +1,21 @@
 # Distrito City — source recuperada e DATA v2.27
 
-Este repositório contém uma source Android recuperada por Apktool e a reprodução da alteração visual solicitada no interior da prefeitura de GTA San Andreas Android: um overlay/placa localizado naquela parede, com o texto **DISTRITO CITY**. Nenhuma fachada de banco, outro prédio ou outro interior foi alterado.
+Este repositório contém uma source Android recuperada por Apktool e a reprodução da correção visual solicitada para uma única parede do interior customizado da prefeitura no GTA San Andreas Android. O letreiro antigo, incluindo coroa e palavras, foi removido e substituído por tábuas de madeira sem texto. Nenhuma fachada de banco, outro prédio ou outro interior foi alterado.
 
 ## Entregas oficiais
 
-A release pública de hotfix [`v2.27.1-distrito-city`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/tag/v2.27.1-distrito-city) contém:
+A nova release pública [`v2.27.2-distrito-city`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/tag/v2.27.2-distrito-city) contém:
 
-- DATA completa: [`angra-classico-v2.27-distrito-city.zip`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/download/v2.27.1-distrito-city/angra-classico-v2.27-distrito-city.zip)
-- APK recompilado com hotfix de validação: [`distrito-city-v2.27.1.apk`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/download/v2.27.1-distrito-city/distrito-city-v2.27.1.apk)
+- DATA completa: [`angra-classico-v2.27.2-distrito-city.zip`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/download/v2.27.2-distrito-city/angra-classico-v2.27.2-distrito-city.zip)
+- APK recompilado com o hash da nova DATA e o hotfix anterior do instalador: [`distrito-city-v2.27.2.apk`](https://github.com/afroditevtin-maker/distrito-city-oficial/releases/download/v2.27.2-distrito-city/distrito-city-v2.27.2.apk)
 
-O hotfix corrige a validação dos nomes e da URL dos pacotes nos manifestos v2/v3. No formato v2, `nome` identifica logicamente `angra-classico.zip`; a URL continua apontando para o asset completo publicado. O conteúdo visual da DATA não mudou.
-
-A DATA tem 2.099 entradas ZIP, 897.208.097 bytes compactados e 2.036.345.061 bytes descompactados. SHA-256: `dfbb3b0f1a2a319940fd7684daedabec03bd03eedeaf78a54566b3d7a8789469`.
+Esta release mantém a correção do parser de pacotes v2/v3 introduzida no hotfix anterior e atualiza apenas os pixels da textura exclusiva da parede para remover a coroa e o texto. A DATA tem 2.099 entradas ZIP, 878.309.825 bytes compactados e 2.036.345.061 bytes descompactados. SHA-256: `06ec87e3786ac8cbfd64443c98f92e47c0807dc9962489bff1d0e22f23cd3d9a`.
 
 ## Escopo da DATA
 
-A alteração visual está restrita à parede do interior da prefeitura. O DFF `rio_int_pravo_08.dff`, material alvo 18, passou a apontar para a textura exclusiva `distrito001`; a textura compartilhada `r_pr_logo11` não foi alterada. Foram modificados somente estes cinco arquivos da DATA:
+O objeto alvo é `rio_int_pravo_08.dff` (ID 5085), material 18, na colocação única identificada em `data/maps/generic/interiors.IPL`. Esse binding usa a textura exclusiva `distrito001`; a textura compartilhada `r_pr_logo11` foi preservada, assim como a posição do objeto, o DFF, os índices e os demais materiais. Nenhum banco, fachada, outro prédio ou outro interior foi alterado.
 
-1. `texdb/gta3.img`
-2. `texdb/txd/txd.txt`
-3. `texdb/txd/txd.etc.dat`
-4. `texdb/txd/txd.etc.toc`
-5. `texdb/txd/txd.etc.tmb`
-
-A variante `txd.etc.360` permaneceu intacta. O ZIP completo, e não um patch, é publicado como asset da release. A source inclui a arte aprovada em `assets/overlays/distrito-city-wall-256.png` e os scripts de reprodução/validação em `tools/`.
+Em relação ao pacote já corrigido na release anterior, somente os pixels em `texdb/txd/txd.etc.dat` e `texdb/txd/txd.etc.tmb` foram atualizados. A variante `txd.etc.360` permaneceu intacta. A source contém a textura 256×256 sem logo em `assets/overlays/distrito-city-wall-256.png` e scripts reproduzíveis em `tools/`, incluindo `apply_distrito_wall.py` para uma DATA base e `update_distrito_wall_texture.py` para uma DATA já remapeada.
 
 ## Recompilar a source
 
@@ -33,8 +25,8 @@ A source foi reconstruída a partir de um APK decompilado; ela não é o projeto
 apktool b --use-aapt2 -a /usr/bin/aapt2 . -o /tmp/distrito-city-unsigned.apk
 ```
 
-Assine o APK usando uma chave de teste local (não incluída neste repositório) e valide a assinatura com `apksigner verify`. O APK da release foi compilado de um clone limpo deste repositório e usa uma chave de teste; ele não foi assinado com a chave privada original do aplicativo.
+Assine o APK com uma chave de teste local (a chave original do aplicativo não estava disponível e nenhuma chave privada é incluída no repositório). Se o APK instalado estiver assinado por outro certificado, o Android poderá exigir a desinstalação da versão anterior antes da instalação.
 
 ## Limites de validação
 
-A DATA publicada teve o CRC do ZIP verificado e seus metadados/hash foram conferidos. A assinatura do APK foi verificada após a compilação. Não houve teste dinâmico em aparelho Android/ADB; portanto, não se afirma instalação, abertura do jogo ou teste in-game em dispositivo. Uma instalação assinada por certificado diferente pode exigir a desinstalação prévia de uma versão já instalada.
+O ZIP completo passou no teste CRC, e os hashes do pacote e dos registros ETC foram conferidos. A assinatura do APK foi verificada após a compilação. Não houve teste dinâmico em aparelho Android/ADB; portanto, não se afirma instalação, abertura do jogo ou verificação visual in-game em dispositivo.
