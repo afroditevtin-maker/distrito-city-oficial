@@ -80,9 +80,9 @@
     .line 13
     new-instance p0, Lcom/xyron/game/launcher/util/MapProfile;
 
-    const-string v1, "135.148.164.122"
+    const-string v1, "92.119.165.177"
 
-    const/16 v2, 0x4dc5
+    const/16 v2, 0x2671
 
     const-string v3, "angra-classico"
 

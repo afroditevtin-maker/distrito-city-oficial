@@ -8,8 +8,8 @@
         {
           "id": "2",
           "nome": "Rio Clássico",
-          "host": "135.148.164.122",
-          "porta": 19909,
+          "host": "92.119.165.177",
+          "porta": 9841,
           "online": true,
           "mensagem": "O servidor encontra-se indisponível no momento. Consulte o Discord para informações sobre a manutenção."
         }
