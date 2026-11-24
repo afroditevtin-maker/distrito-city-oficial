@@ -7811,7 +7811,7 @@
 .end method
 
 .method private initializeHudSettingsPanel()V
-    .locals 2
+    .locals 5
 
     .line 1827
     iget-object v0, p0, Lcom/xyron/game/main/SAMP;->hud_main:Landroidx/constraintlayout/widget/ConstraintLayout;
@@ -8177,6 +8177,68 @@
     .line 1964
     :cond_d
     invoke-direct {p0}, Lcom/xyron/game/main/SAMP;->syncHudRenderSettingsUi()V
+
+    invoke-direct {p0}, Lcom/xyron/game/main/SAMP;->syncHudFpsCounterButton()V
+
+    const-string v0, "hud_chat_scale_seek"
+
+    const-string v1, "hud_chat_scale_value"
+
+    const-string v2, "chat_scale"
+
+    const-string v3, "Escala do chat"
+
+    invoke-direct {p0, v0, v1, v2, v3}, Lcom/xyron/game/main/SAMP;->bindSettingsSeekBar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "settings_audio_master_seek"
+
+    const-string v1, "settings_audio_master_value"
+
+    const-string v2, "master"
+
+    const-string v3, "Volume geral"
+
+    invoke-direct {p0, v0, v1, v2, v3}, Lcom/xyron/game/main/SAMP;->bindSettingsSeekBar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "settings_audio_sfx_seek"
+
+    const-string v1, "settings_audio_sfx_value"
+
+    const-string v2, "sfx"
+
+    const-string v3, "Efeitos"
+
+    invoke-direct {p0, v0, v1, v2, v3}, Lcom/xyron/game/main/SAMP;->bindSettingsSeekBar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "settings_audio_ambient_seek"
+
+    const-string v1, "settings_audio_ambient_value"
+
+    const-string v2, "ambient"
+
+    const-string v3, "Ambiente"
+
+    invoke-direct {p0, v0, v1, v2, v3}, Lcom/xyron/game/main/SAMP;->bindSettingsSeekBar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "settings_audio_vehicles_seek"
+
+    const-string v1, "settings_audio_vehicles_value"
+
+    const-string v2, "vehicles"
+
+    const-string v3, "Veículos"
+
+    invoke-direct {p0, v0, v1, v2, v3}, Lcom/xyron/game/main/SAMP;->bindSettingsSeekBar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "settings_audio_voip_seek"
+
+    const-string v1, "settings_audio_voip_value"
+
+    const-string v2, "voip"
+
+    const-string v3, "VoIP"
+
+    invoke-direct {p0, v0, v1, v2, v3}, Lcom/xyron/game/main/SAMP;->bindSettingsSeekBar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1965
     invoke-direct {p0}, Lcom/xyron/game/main/SAMP;->applyHudRenderSettingsRuntime()V
@@ -9551,9 +9613,35 @@
 
     iput-boolean v0, p0, Lcom/xyron/game/main/SAMP;->hudVoiceEnabled:Z
 
-    const/high16 v0, 0x3f800000    # 1.0f
-
     .line 2010
+    const-string/jumbo v0, "xyron_hud_render_settings"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/xyron/game/main/SAMP;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    const-string v1, "chat_scale"
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getFloat(Ljava/lang/String;F)F
+
+    move-result v0
+
+    const v1, 0x3f400000    # 0.75f
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(FF)F
+
+    move-result v0
+
+    const v1, 0x3fc66666    # 1.55f
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
+
+    move-result v0
+
     iput v0, p0, Lcom/xyron/game/main/SAMP;->hudChatScale:F
 
     return-void
@@ -23591,6 +23679,228 @@
     return-void
 .end method
 
+.method private bindSettingsSeekBar(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 9
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string v1, "id"
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, p1, v1, v2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    if-eqz v3, :return
+
+    invoke-virtual {p0, v3}, Lcom/xyron/game/main/SAMP;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/SeekBar;
+
+    if-eqz v0, :return
+
+    move-object v6, v0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string v1, "id"
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, p2, v1, v2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    if-eqz v3, :return
+
+    invoke-virtual {p0, v3}, Lcom/xyron/game/main/SAMP;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    if-eqz v0, :return
+
+    move-object v7, v0
+
+    const-string v0, "chat_scale"
+
+    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :audio_value
+
+    iget v4, p0, Lcom/xyron/game/main/SAMP;->hudChatScale:F
+
+    const/high16 v5, 0x42c80000    # 100.0f
+
+    mul-float/2addr v4, v5
+
+    const/high16 v5, 0x42960000    # 75.0f
+
+    sub-float/2addr v4, v5
+
+    float-to-int v4, v4
+
+    const/4 v1, 0x0
+
+    const/16 v2, 0x50
+
+    invoke-direct {p0, v4, v1, v2}, Lcom/xyron/game/main/SAMP;->clampInt(III)I
+
+    move-result v4
+
+    add-int/lit8 v8, v4, 0x4b
+
+    goto :set_values
+
+    :audio_value
+    const-string v0, "angra_audio_mix_v1"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/xyron/game/main/SAMP;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    const/16 v1, 0x64
+
+    invoke-interface {v0, p3, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v4
+
+    const/4 v1, 0x0
+
+    const/16 v2, 0x64
+
+    invoke-direct {p0, v4, v1, v2}, Lcom/xyron/game/main/SAMP;->clampInt(III)I
+
+    move-result v4
+
+    move v8, v4
+
+    :set_values
+    invoke-virtual {v6, v4}, Landroid/widget/SeekBar;->setProgress(I)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ": "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, "%"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v7, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/xyron/game/main/SAMP;->runtimeOverlayBridge:Lcom/xyron/game/main/SAMP$RuntimeOverlayBridge;
+
+    if-eqz v0, :return
+
+    new-instance v1, Lcom/xyron/game/main/SAMP$SettingsSeekBarListener;
+
+    invoke-direct {v1, v0, p3, v7, p4}, Lcom/xyron/game/main/SAMP$SettingsSeekBarListener;-><init>(Lcom/xyron/game/main/SAMP$RuntimeOverlayBridge;Ljava/lang/String;Landroid/widget/TextView;Ljava/lang/String;)V
+
+    invoke-virtual {v6, v1}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
+
+    :return
+    return-void
+.end method
+
+.method private syncHudFpsCounterButton()V
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const-string v1, "hud_fps_counter_toggle"
+
+    const-string v2, "id"
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :return
+
+    invoke-virtual {p0, v0}, Lcom/xyron/game/main/SAMP;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    if-eqz v0, :return
+
+    iget-boolean v1, p0, Lcom/xyron/game/main/SAMP;->hudFpsCounterEnabled:Z
+
+    if-eqz v1, :off
+
+    const-string v1, "Contador FPS: ON"
+
+    goto :set_text
+
+    :off
+    const-string v1, "Contador FPS: OFF"
+
+    :set_text
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :return
+    return-void
+.end method
+
+.method public toggleHudFpsCounter(Landroid/view/View;)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/xyron/game/main/SAMP;->hudFpsCounterEnabled:Z
+
+    xor-int/lit8 v0, v0, 0x1
+
+    iput-boolean v0, p0, Lcom/xyron/game/main/SAMP;->hudFpsCounterEnabled:Z
+
+    invoke-direct {p0}, Lcom/xyron/game/main/SAMP;->applyHudRenderSettingsRuntime()V
+
+    invoke-direct {p0}, Lcom/xyron/game/main/SAMP;->syncHudFpsCounterButton()V
+
+    return-void
+.end method
+
+.method public openNobreHudEditor(Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/xyron/game/main/SAMP;->openNativeHudEditor()V
+
+    return-void
+.end method
+
 .method public openNobreSettings(Landroid/view/View;)V
     .locals 0
     invoke-virtual {p0}, Lcom/xyron/game/main/SAMP;->showSettingsOverlay()V
@@ -23602,5 +23912,3 @@
     invoke-virtual {p0}, Lcom/xyron/game/main/SAMP;->showInventoryOverlay()V
     return-void
 .end method
-
-
